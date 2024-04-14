@@ -1,107 +1,71 @@
+/* CSS for the estimation module */
 .bus-estimation-container {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .source-destination {
-    margin-bottom: 10px;
-  }
-  
-  .source-destination h2 {
-    margin: 5px 0;
-  }
-  
-  .bus-details {
-    display: flex;
-  }
-  
-  .timestamp,
-  .bus-number {
-    flex: 1;
-  }
-  
-  .timestamp h3,
-  .bus-number h3 {
-    margin: 5px 0;
-  }
-
-  
-  .timestamp-bus-container {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    border: 2px solid black; 
-    padding: 10px;
-  }
-  
-  .timestamp-bus-container h3 {
-    margin: 5px;
-  }
+}
 
-  /* Add this style to ensure components cover the entire page */
-.homepage, .bus-estimation-container {
-    width: 90vw;
-  }
-  
-  /* Add this style to ensure text aligns to the center of the page */
-  .homepage, .bus-estimation-container {
-    text-align: center;
-  }
-  
-  .icon {
-    color: #333; 
-    margin-left: 120px; 
-    position: relative;
-  }
-
-  /* CSS for the bus estimation module */
-.bus-estimation-container {
-    margin-top: 20px;
-  }
-  
-  /* CSS for the source and destination section */
-  .source-destination {
+/* CSS for the source and destination section */
+.source-destination {
     display: flex;
     align-items: center;
-  }
-  
-  .source-destination h2 {
+}
+
+.source-destination h2 {
     margin-right: 10px;
-  }
-  
-  /* CSS for the icon */
-  .icon {
+}
+
+/* CSS for the icon */
+.icon {
     font-size: 24px;
     color: #007bff; /* Change the color as needed */
-  }
-  
-  /* CSS for the card */
-  .card {
+}
+
+/* CSS for the card */
+.card {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-  }
-  
-  /* CSS for the container inside the card */
-  .card-content {
+    width: 100%; /* Set card width to 100% */
+    margin-top: 20px; /* Add margin between cards */
+}
+
+/* CSS for the container inside the card */
+.card-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Change flex direction to column */
     align-items: center;
-  }
-  
-  /* CSS for timestamp and bus number */
-  .timestamp, .bus-number {
-    flex: 1; /* Divide the space equally between timestamp and bus number */
-  }
-  
-  .timestamp h3, .bus-number h3 {
+}
+
+/* CSS for timestamp and bus number */
+.timestamp,
+.bus-number {
+    margin: 10px 0; /* Add margin between timestamp and bus number */
+    width: 100%; /* Set width to 100% */
+}
+
+.timestamp h3,
+.bus-number h3 {
     margin: 0;
+}
+
+/* Add this style to ensure text aligns to the center of the page */
+.homepage, .bus-estimation-container {
+    width: 380px; /* Set width to 100% */
+    text-align: center;
+}
+
+.source-destination{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.source-destination h2 {
+    margin-right: 10px;
+    margin-left: 10px; 
   }
-  
-  
-  

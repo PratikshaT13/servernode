@@ -14,15 +14,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  justify-content: left;
+  /*display: flex;*/
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('./components/assets/bus1.jpg')
-  no-repeat;
+  /*background: url('./components/assets/bus1.jpg')
+  no-repeat;*/
   background-size: cover;
   background-position: center;
-  margin-left: 40px;
+  
+ /* margin-left: 40px;*/
 }
 
 code {
