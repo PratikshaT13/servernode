@@ -26,6 +26,7 @@ const BusEstimationList = ({ busDataList }) => {
           key={index}
           timestamp={busData.timestamp}
           busNumber={busData.busNumber}
+          passNumber={busData.passNumber}
         />
       ))}
     </div>

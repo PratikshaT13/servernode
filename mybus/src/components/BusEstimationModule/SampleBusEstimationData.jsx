@@ -6,9 +6,9 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 const SampleBusEstimationData = () => {
   // Sample list of bus data
   const busDataList = [
-    { timestamp: '0 Hr 30 Min', busNumber: '101' },
-    { timestamp: '0 Hr 21 Min', busNumber: '102' },
-    { timestamp: '0 Hr 14 Min', busNumber: '103' },
+    { timestamp: '0 Hr 30 Min', busNumber: '101',passNumber: '17/45'},
+    { timestamp: '0 Hr 21 Min', busNumber: '102',passNumber: '26/45' },
+    { timestamp: '0 Hr 14 Min', busNumber: '103',passNumber:'12/45'},
     // Add more bus data objects as needed
   ];
 
