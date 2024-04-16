@@ -1,74 +1,117 @@
 // import React from 'react';
-// import './Homepage.css';
-// import DisplayPicture from '../assets/bus3.jpg';
-
-// const Homepage = () => {
-//   return (
-//     <div id="homepage-section" className="homepage"> {/* Add id="homepage-section" */}
-//       <div className="homepage-container">
-//         <div className="display-picture">
-//           <img src={DisplayPicture} alt="Display" />
-//         </div>
-//         <div className="content">
-//           <h1>About Us</h1>
-//           <div className="objective">
-//             <h2>Objective 1:</h2>
-//             <p>Design an intuitive user interface that caters to the needs of diverse users, including those with disabilities, and gather community feedback to address specific needs, particularly of vulnerable groups.</p>
-//           </div>
-//           <div className="objective">
-//             <h2>Objective 2:</h2>
-//             <p>Provide accurate estimates of daily bus requirements on an hourly basis.</p>
-//           </div>
-//           <div className="objective">
-//             <h2>Objective 3:</h2>
-//             <p>Monitor the real-time capacity of buses and provide updates to passengers.</p>
-//           </div>
-//           </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Homepage;
-
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Homepage.css';
-import DisplayPicture from '../assets/bus3.jpg';
+import { useState } from "react";
+import Slider from "react-slick";
+import icon1 from '../assets/icon11.jpg';
+import icon2 from '../assets/icon2.png';
+import icon3 from '../assets/icon3.png';
+import icon4 from '../assets/icon4.png';
+import { FaArrowRight,FaArrowLeft } from 'react-icons/fa';
+import maps from '../assets/map.png';
+import Footer from '../Footer/Footer';
 
-const Homepage = () => {
-  const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate('/bus-estimation');
+const images=[icon1,icon2,icon3,icon4];
+const buttons=["Bus Capacity Estimation" ,"Bus Demand Estimation","Button 3","Button 4" ];
+const navtext=['/bus-estimation','/login','/login','/login'];
+// const images = [
+//   { src: icon1, btnName: "Button 1" },
+//   { src: icon2, btnName: "Button 2" },
+//   { src: icon3, btnName: "Button 3" },
+//   { src: icon4, btnName: "Button 4" }
+// ];
+
+function Homepage() {
+  const NextArrow = ({ onClick }) => {
+    return (
+      <div className="arrow next" onClick={onClick}>
+        <FaArrowRight />
+      </div>
+    );
   };
 
-  return (
-    <div id="homepage-section" className="homepage">
-      <div className="homepage-container">
-        <div className="display-picture">
-          <img src={DisplayPicture} alt="Display" />
-        </div>
-        <div className="content">
-          <h1>About Us</h1>
-          <div className="objective">
-            <h2>Objective 1:</h2>
-            <p>Design an intuitive user interface that caters to the needs of diverse users, including those with disabilities, and gather community feedback to address specific needs, particularly of vulnerable groups.</p>
-          </div>
-          <div className="objective">
-            <h2>Objective 2:</h2>
-            <p>Provide accurate estimates of daily bus requirements on an hourly basis.</p>
-          </div>
-          <div className="objective">
-            <h2>Objective 3:</h2>
-            <p>Monitor the real-time capacity of buses and provide updates to passengers.</p>
-          </div>
-          <button onClick={handleNavigate}>Go to Bus Estimation</button>
-        </div>
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <div className="arrow prev" onClick={onClick}>
+        <FaArrowLeft />
       </div>
+    );
+  };
+
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const settings = {
+    infinite: true,
+    lazyLoad: true,
+    speed: 300,
+    slidesToShow: 3,
+    centerMode: true,
+    centerPadding: 0,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: (current, next) => setImageIndex(next),
+  };
+
+  const navigate = useNavigate();
+
+  const handleNav=({idx})=>{
+    navigate(navtext[idx]);
+  }
+
+
+
+// return (
+//   <Slider {...settings}>
+//     {images.map((img, idx) => (
+//       <div
+//         key={idx}
+//         className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+//           <div className='bgslide'>
+//         <img src={img} alt={img} />
+//         <button onClick={() => handleNav(idx)} className='buttonx'>{buttons[idx]}</button>
+//       </div>
+//       </div>
+//     ))}
+//   </Slider>
+
+// );
+
+return (
+  <>
+    <Slider {...settings}>
+      {images.map((img, idx) => (
+        <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"} style={{background:'#000'}}>
+          <div className='bgslide'>
+          <img src={img} alt={img} />
+          <button onClick={() => handleNav(idx)} className='buttonx'>{buttons[idx]}</button>
+        </div>
+        </div>
+      ))}
+    </Slider>
+  
+  <h2 style={{margin:'20px',marginLeft:'40px',color:'#fff'}}>About Us</h2>
+  <div className="containerss">
+    <div className="left">
+      <img src={maps} alt="icon1" style={{height:'400px',width:'650px',borderRadius:'20px',boxShadow:'inherit',margin:'20px',fontColor:'#fff'}}/>
     </div>
-  );
-};
+    <div className="right">
+      <p className="poppins-regular" style={{
+        margin: '20px',
+        fontSize: '16px',
+        lineHeight: '1.9',
+        color: '#fff',
+      }}>
+        Welcome to Namma Bus!
+
+        Namma Bus, the Hubballi-Dharwad project, is a Special Purpose Vehicle for the rapid transit system between Hubballi and Dharwad. Our goal is safe, affordable, and sustainable transport for all commuters, focusing on the needs of underserved groups like children, persons with disabilities, and the elderly. Committed to providing fast, reliable, and comfortable travel, Namma Bus estimates daily needs and monitors real-time capacity aiming to make public transport safer and more accessible. Embark on adventures with Namma Bus - where every mile is a memory, your trusted partner for safe journeys.
+      </p>
+    </div>
+  </div>
+  <Footer /> 
+</>
+
+);
+}
 
 export default Homepage;
-

@@ -188,7 +188,8 @@ const Login = ({ setLoggedIn }) => {
     };
 
     return (
-        <div className='wrapper'>
+            <div className="login-background">
+            <div class='wrapper' >
             <form onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div className="input-box">
@@ -232,6 +233,8 @@ const Login = ({ setLoggedIn }) => {
                 </div>
             </form>
         </div>
+        </div>
+       
     );
 };
 

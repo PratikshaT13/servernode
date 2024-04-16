@@ -1,3 +1,19 @@
+
+/* body {
+    
+    background: url('../assets/background1.jpg') no-repeat fixed center;
+    background-size: cover;
+} */
+
+/* .signup-background {
+    background: url('../assets/backg.jpg') no-repeat fixed center;
+    background-size:contain;
+    height:max-content;
+  }  */
+
+  
+  
+  
 .wrapper{
     width: 420px;
     background: rgba(255, 255, 255, 0.36);
@@ -6,7 +22,14 @@
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     color: #000;
     border-radius: 10px;
-    padding: 30px 40px;
+    justify-content: center;
+    margin-left: 40px;
+    margin-top: 20px;
+    /* margin-inline-start: 100px; */
+    /* padding: 30px 30px; 
+   margin-left:400px; */
+   
+   /* margin-top: 50px;  */
 }
 
 .wrapper h1{
@@ -78,18 +101,19 @@
     box-shadow: 0 0 10px rgba(0,0,0,.1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: #080808;
     font-weight: 700;
 }
 
 .wrapper button:hover {
-    background-color: rgb(105, 170, 223); 
+    background-color:  #2b1a37;
+    color:#fff
 }
 
 .wrapper .register-link{
     font-size: 14.5px;
     text-align: center;
-    margin: 20px 0 15px;
+    margin: 20px 0 5px;
 }
 
 .register-link p a {
@@ -105,7 +129,7 @@
 .wrapper .login-link{
     font-size: 14.5px;
     text-align: center;
-    margin: 20px 0 15px;
+    margin: 18px 0 5px;
 }
 
 .wrapper .login-link span{

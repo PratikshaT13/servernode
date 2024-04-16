@@ -1,14 +1,32 @@
+/* body {
+   background: url('../assets/background1.jpg') no-repeat fixed center;
+    background-size: cover;
+}  */
+
+/* .login-background {
+    background: url('../assets/background1.jpg') no-repeat fixed center;
+    background-size: auto;
+    height:max-content;
+  }
+   */
+
+
+
 .wrapper{
     width: 420px;
-    background:rgba(255, 255, 255, 0.36);
+    background:rgba(249, 135, 135, 0.36);
     border: 2px solid rgba(141, 124, 124, 0.2);
     backdrop-filter: blur(30px);
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    box-shadow: 0 0 10px rgba(235, 228, 228, 0.2);
     color: #000;
     border-radius: 10px;
-    padding: 30px 40px;
+    padding: 30px 30px;
+    justify-content: center;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-bottom: 45px;
+   
 }
-
 .wrapper h1{
     font-size: 36px;
     text-align: center;
@@ -83,7 +101,7 @@
 }
 
 .wrapper button:hover {
-    background-color: rgb(105, 170, 223); 
+    background-color: #2b1a37;
 }
 
 .wrapper .register-link{
@@ -110,5 +128,21 @@
 }
 
 .register-link span:hover {
+    text-decoration: underline;
+}
+
+.wrapper .login-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.wrapper .login-link span{
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link span:hover{
     text-decoration: underline;
 }

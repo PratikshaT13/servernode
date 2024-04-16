@@ -7,23 +7,6 @@ import './BusEstimationList';
 import Lottie from 'react-lottie';
 import animationData from '../assets/ani1.json';
 
-// const BusEstimationModule = ({ source, destination, timestamp, busNumber }) => {
-//   return (
-//     <div className="bus-estimation-container">
-      
-//       <div className="bus-details">
-//         <div className="card">
-//           <div className="timestamp">
-//             <h3><IoTimeOutline className='icon'/>{timestamp}</h3>
-//           </div>
-//           <div className="bus-number">
-//             <h3>Bus Number: {busNumber}</h3>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
 const BusEstimationModule = ({ source, destination, timestamp, busNumber,passNumber}) => {
     const defaultOptions = {
@@ -44,7 +27,7 @@ const BusEstimationModule = ({ source, destination, timestamp, busNumber,passNum
               <h3><IoTimeOutline className='icon'/>{timestamp}</h3>
             </div>
             <div className="ani1">
-              <Lottie options={defaultOptions} height={150} width={150} />
+              <Lottie options={defaultOptions} height={150} width={150} isClickToPauseDisabled={true}/>
             </div>
             <div className="bus-number">
               <h3>Bus Number: {busNumber}</h3>
@@ -59,3 +42,7 @@ const BusEstimationModule = ({ source, destination, timestamp, busNumber,passNum
   };
   
 export default BusEstimationModule;
+
+
+
+

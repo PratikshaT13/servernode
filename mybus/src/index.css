@@ -18,10 +18,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /*background: url('./components/assets/bus1.jpg')
-  no-repeat;*/
+  /* background: url('./components/assets/bus1.jpg')
+  no-repeat; */
+  /* background: rgb(102,202,243); */
+/* background: linear-gradient(0deg, rgba(102,202,243,0.9924200527909873) 9%, rgba(49,164,241,1) 57%, rgba(32,110,202,1) 89%); */
+  /*background:#ACE2E1;*/
   background-size: cover;
   background-position: center;
+  
   
  /* margin-left: 40px;*/
 }

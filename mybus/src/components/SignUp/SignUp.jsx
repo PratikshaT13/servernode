@@ -105,7 +105,8 @@ const SignUp = () => {
     };
 
     return (
-        <div className='wrapper'>
+        <div className='signup-background'>
+        <div className='wrapper' >
             <form onSubmit={handleSignUp}>
                 <h1>Sign Up</h1>
                 <div className="input-box">
@@ -150,6 +151,7 @@ const SignUp = () => {
                     <p>Already have an account?  <span onClick={handleLoginClick}>Login</span></p>
                 </div>
             </form>
+        </div>
         </div>
     );
 };
