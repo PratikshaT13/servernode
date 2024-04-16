@@ -12,9 +12,7 @@ import maps from '../assets/map.png';
 import Footer from '../Footer/Footer';
 
 
-const images=[icon1,icon2,icon3,icon4];
-const buttons=["Bus Capacity Estimation" ,"Bus Demand Estimation","Button 3","Button 4" ];
-const navtext=['/bus-estimation','/login','/login','/login'];
+
 // const images = [
 //   { src: icon1, btnName: "Button 1" },
 //   { src: icon2, btnName: "Button 2" },
@@ -53,11 +51,6 @@ function Homepage() {
     beforeChange: (current, next) => setImageIndex(next),
   };
 
-  const navigate = useNavigate();
-
-  const handleNav=({idx})=>{
-    navigate(navtext[idx]);
-  }
 
 
 
@@ -77,25 +70,37 @@ function Homepage() {
 
 // );
 
+const navigate = useNavigate();
+
+const handleNav=({idx})=>{
+  navigate(navtext[idx]);
+}
+
+const images=[icon1,icon2,icon3,icon4];
+const buttons=["Bus Capacity Estimation" ,"Bus Demand Estimation","Button 3","Button 4" ];
+const navtext=['/bus-estimation','/login','/login','/login'];
+
+
 return (
   <>
-    <Slider {...settings}>
+    <Slider {...settings} style ={{background:'#00013288'}}>
       {images.map((img, idx) => (
         <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"} style={{background:'#000'}}>
           <div className='bgslide'>
           <img src={img} alt={img} />
-          <button onClick={() => handleNav(idx)} className='buttonx'>{buttons[idx]}</button>
+          <button onClick={() => handleNav({idx})} className='buttonx'>{buttons[idx]}</button>
         </div>
         </div>
       ))}
     </Slider>
   
-  <h2 style={{margin:'20px',marginLeft:'40px',color:'#fff'}}>About Us</h2>
+  
   <div className="containerss">
     <div className="left">
       <img src={maps} alt="icon1" style={{height:'400px',width:'650px',borderRadius:'20px',boxShadow:'inherit',margin:'20px',fontColor:'#fff'}}/>
     </div>
     <div className="right">
+      <h2 style={{margin:'20px',marginLeft:'40px',color:'#fff'}}>About Us</h2>
       <p className="poppins-regular" style={{
         margin: '20px',
         fontSize: '16px',

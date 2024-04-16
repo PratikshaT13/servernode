@@ -138,7 +138,7 @@ const Navbar = () => {
       <div className="navbar-container">
       <ul className="nav-menu-r">
         <li className="nav-item dropdown">
-          <a href="#" className="nav-link">
+          <a href="#" className="service-btn">
             Services
            <i className="fa fa-caret-down"></i>
           </a>
