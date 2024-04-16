@@ -1,13 +1,13 @@
-.bus-estimation-container {
+ .bus-estimation-container {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 10px; /* Add border-radius */
+  padding: 20px; /* Add padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow */
 }
-
-
-
-
 
 button {
 padding: 10px 20px;
@@ -63,16 +63,16 @@ background-color: #0056b3;
 }
 
 /* Add this style to ensure text aligns to the center of the page */
-.bus-estimation-container {
-  width: 380px; /* Set width to 100% */
+/* .bus-estimation-container {
+  width: 380px; /* Set width to 100% 
   text-align: center;
-}
+} */
 
 
-.source-destination h2 {
+/* .source-destination h2 {
   margin-right: 10px;
   margin-left: 10px; 
-}
+} */
 
 /*Busgallary*/
 
@@ -82,6 +82,7 @@ background-color: #0056b3;
   justify-content: space-between;
   overflow: hidden;
   position: relative;
+  
 }
 
 .bus-gallery {

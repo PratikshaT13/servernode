@@ -102,9 +102,9 @@ const SampleBusEstimationData = () => {
   };
 
   return (
-    <div className="bus-estimation-form">
-      <div className="source-destination" style={{textAlign:'center'}}>
-      <div style={{ display: 'inline-block' }}>Source:</div>
+    <div className="bus-estimation-container ">
+     <div className="source-destination" style={{textAlign:'center'}}>
+      <div style={{ display: 'inline-block',fontWeight:'500' }}>Source:</div>
         <FaMapMarkerAlt className="icon" />
         <select
           value={source}
@@ -122,13 +122,13 @@ const SampleBusEstimationData = () => {
         </select>
       </div>
       <div>
-        <div style={{ display: 'inline-block' }}>Destination:</div>
+        <div style={{ display: 'inline-block', marginLeft: '62px',fontWeight:'500',marginTop:'15px' }}>Destination:</div>
         <FaMapMarkerAlt className="icon" />
         <select
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
           style={{
-            marginLeft: '5px',
+            marginLeft: '10px',
             marginRight: '5px',
             padding: '5px',
             borderRadius: '5px',
@@ -139,7 +139,7 @@ const SampleBusEstimationData = () => {
           {/* Add other destination options here */}
         </select>
       </div>
-      <div className="passengers-input">
+      <div className="passengers-input" style={{ display: 'inline-block', marginLeft:'1px',marginTop:'5px'}}>
         <input
           type="number"
           placeholder="Number of passengers"
@@ -147,15 +147,16 @@ const SampleBusEstimationData = () => {
           onChange={(e) => setPassengers(e.target.value)}
           style={{
             justifyContent:'center',
-            marginLeft: '5px',
-            marginRight: '5px',
+            marginTop:'10px',
+            marginLeft: '100px',
+            marginRight: '0px',
             padding: '5px',
             borderRadius: '5px',
             border: '1px solid #ccc',
           }}
         />
       </div>
-      <button onClick={handleFindBus}>Find Bus</button>
+      <button onClick={handleFindBus} style={{ display: 'inline-block', marginLeft: '100px',marginTop:'10px',fontWeight:'500' }}>Find Bus</button>
       {showEstimation &&  <BusGallery busDataList={busDataList} /> } {/* Render the bus estimation cards if showEstimation is true */}
     </div>
   );
