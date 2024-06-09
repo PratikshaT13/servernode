@@ -12,8 +12,9 @@ import Footer from './components/Footer/Footer';
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     // Simulate loading delay (remove this in your actual implementation)
@@ -24,19 +25,28 @@ function App() {
     // Clean up timer
     return () => clearTimeout(timeout);
   }, []);
+  const handleLogin = (username) => {
+    setIsLoggedIn(true);
+    setUsername(username);
+  };
+
+  const handleSignOut = () => {
+    setIsLoggedIn(false);
+    setUsername('');
+  };
   
 
   return (
     <Router style={{ height: '100%' }}>
       
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} username={username} handleSignOut={handleSignOut}/>
       {loading ? (
         <LoadingAnimation />
       ) : (
         <Routes>
           <Route path="/homepage" element={<Homepage />} />
-          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
-          <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/signup" element={<SignUp  />} />
           <Route path="/bus-estimation" element={<SampleBusEstimationData />} />
         </Routes>
       )}
