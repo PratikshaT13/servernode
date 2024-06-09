@@ -14,7 +14,7 @@
 }
 
 .slide img {
-  width: 16.5rem;
+  width: 20rem;
   margin: 0 auto;
 }
 
@@ -55,20 +55,20 @@
 }
 
 .buttonx {
-  background-color: #2f0376; /* Pastel blue green */
-  color: #fff;
+  background-color: #abb1f9; /* Pastel blue green */
+  color: #000000;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   /* margin-left: 80px; */
-  margin-top: 30px;
+  margin-top: 80px;
 
 }
 
 .buttonx:hover {
-  background-color: #9304fa; /* Darker shade on hover */
+  background-color: #6358fd; /* Darker shade on hover */
   color: #000;
 } 
 
@@ -78,18 +78,14 @@
 } 
 
 body{
-  background: url('../assets/back12.jpg') no-repeat fixed center;
-  
+  background: rgb(212, 217, 247); /* url('../assets/background1.png') no-repeat fixed center; */
   background-size: 100% auto;
-  /* background: rgb(102,202,243); */
-/* background: linear-gradient(0deg, rgba(102,202,243,0.9924200527909873) 9%, rgba(49,164,241,1) 57%, rgba(32,110,202,1) 89%); */
-}
+} 
+
 
 
 .bgslide{
-  background:rgba(203, 209, 245, 0.236);
-  border: 2px solid rgba(141, 124, 124, 0.2);
-  backdrop-filter: blur(80px);
+  background:rgb(22, 38, 128);
   box-shadow: 0 0 10px rgba(78, 48, 48, 0.2);
   color: #000;
   border-radius: 20px;

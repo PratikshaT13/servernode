@@ -27,12 +27,13 @@ const BusGallery = ({ busDataList }) => {
       </button>
       <div className="bus-gallery" ref={galleryRef}>
         {busDataList.slice(startIndex, startIndex + 3).map((busData, index) => (
-          <BusEstimationModule
-            key={index}
-            timestamp={busData.timestamp}
-            busNumber={busData.busNumber}
-            passNumber={busData.passNumber}
-          />
+        <div className="bus-item" key={index}>
+        <BusEstimationModule
+          timestamp={busData.timestamp}
+          busNumber={busData.busNumber}
+          passNumber={busData.passNumber}
+        />
+      </div>
         ))}
       </div>
       <button className="scroll-button right" onClick={scrollRight}>

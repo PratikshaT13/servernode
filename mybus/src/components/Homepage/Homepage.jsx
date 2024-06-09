@@ -43,9 +43,9 @@ function Homepage() {
     infinite: true,
     lazyLoad: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 1,
     centerMode: true,
-    centerPadding: 0,
+    centerPadding: "20%",
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
@@ -83,7 +83,7 @@ const navtext=['/bus-estimation','/login','/login','/login'];
 
 return (
   <>
-    <Slider {...settings} style ={{background:'#00013288'}}>
+    <Slider {...settings} style ={{}}>
       {images.map((img, idx) => (
         <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"} style={{background:'#000'}}>
           <div className='bgslide'>
@@ -100,12 +100,12 @@ return (
       <img src={maps} alt="icon1" style={{height:'400px',width:'650px',borderRadius:'20px',boxShadow:'inherit',margin:'20px',fontColor:'#fff'}}/>
     </div>
     <div className="right">
-      <h2 style={{margin:'20px',marginLeft:'40px',color:'#fff'}}>About Us</h2>
+      <h2 style={{margin:'20px',marginLeft:'40px'}}>About Us</h2>
       <p className="poppins-regular" style={{
         margin: '20px',
         fontSize: '16px',
         lineHeight: '1.9',
-        color: '#fff',
+        
       }}>
         Welcome to Namma Bus!
 

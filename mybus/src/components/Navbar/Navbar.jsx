@@ -124,7 +124,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import Logo from '../assets/logo-pic.jpg';
+import Logo from '../assets/logo.png';
 
 const Navbar = () => {
   const navigate = useNavigate();

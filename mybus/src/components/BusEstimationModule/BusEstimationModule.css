@@ -87,9 +87,14 @@ background-color: #0056b3;
 
 .bus-gallery {
   display: flex;
-  transition: transform 0.5s ease; /* Add transition for smooth scrolling */
+  overflow: hidden;
+  transition: transform 1s ease-in-out; /* Adjust the speed as needed */
 }
 
+.bus-gallery .bus-item {
+  min-width: 33.33%; /* Assuming 3 items are shown at a time */
+  transition: transform 1s ease-in-out; /* Adjust the speed as needed */
+}
 .scroll-button {
   position: sticky;
   top: 50%;
