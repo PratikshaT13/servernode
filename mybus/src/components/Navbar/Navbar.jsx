@@ -42,7 +42,7 @@ const Navbar = ({ isLoggedIn, username, handleSignOut }) => {
               </li>
               <li className="nav-item">
               
-              <div style={{color: "black", fontSize: "14px", fontWeight: "bold", padding: "10px"}}>
+              <div style={{fontSize: "14px", fontWeight: "bold", padding: "10px"}}>
                 {username}
               </div>
               </li>
