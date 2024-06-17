@@ -25,8 +25,8 @@ const Navbar = ({ isLoggedIn, username, handleSignOut }) => {
               <a href="/bus-estimation" className="nav-link" onClick={() => navigate('/bus-estimation')}>
                 Bus Capacity Estimation
               </a>
-              <a href="/bus-demand" className="nav-link" onClick={() => navigate('/bus-demand')}>
-                Bus Demand Estimation
+              <a href="/fleet" className="nav-link" onClick={() => navigate('/fleet')}>
+                Fleet Health Checkup
               </a>
             </div>
           </li>

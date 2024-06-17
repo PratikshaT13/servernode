@@ -1,21 +1,10 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-/* .body
-{
-  background: #fff !important;
-} */
-
-
 .App {
   width: 50%;
   margin: 10rem auto;
   height: 590px;
-}
-
-.slide img {
-  width: 20rem;
-  margin: 0 auto;
 }
 
 .slide {
@@ -61,10 +50,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  /* margin-left: 80px; */
-  margin-top: 80px;
-
+  font-size: 20px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 .buttonx:hover {
@@ -72,45 +60,54 @@
   color: #000;
 } 
 
-.containerss{
+.containerss {
   display: flex;
-  
 } 
 
-body{
+body {
   background: rgb(212, 217, 247); /* url('../assets/background1.png') no-repeat fixed center; */
   background-size: 100% auto;
 } 
 
-
-
-.bgslide{
-  background:rgb(22, 38, 128);
+.bgslide {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgb(22, 38, 128);
   box-shadow: 0 0 10px rgba(78, 48, 48, 0.2);
-  color: #000;
+  color: #fff;
+  height: 650px;
   border-radius: 20px;
-  padding: 80px 80px;
-  justify-content: center;
-  /* margin-left: 40px;
-  margin-top: 20px; */
-  padding-bottom: 100px;
-  text-align: center;
+  padding: 40px;
+  text-align: left;
 }
 
-.right{
-  background:rgba(146, 127, 222, 0.082);
+.slide-icon {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.slide-content {
+  max-width: 60%;
+}
+
+.slide-content p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.right {
+  background: rgba(146, 127, 222, 0.082);
   border: 2px solid rgba(141, 124, 124, 0.2);
   backdrop-filter: blur(80px);
   box-shadow: 0 0 10px rgba(78, 48, 48, 0.2);
   color: #000;
   border-radius: 20px;
-  padding: 30px 30px;
-  justify-content: center;
-  /* margin-left: 40px;
-  margin-top: 20px; */
+  padding: 30px;
   text-align: center;
-  height:400px;
-  width:fit-content;
+  height: 400px;
+  width: fit-content;
   margin-right: 30px;
   margin-top: 20px;
 }

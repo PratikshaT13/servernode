@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api'; 
+const API_URL = 'http://localhost:8010'; 
 
 const loginS = async (username, password) => {
     try {
-        const response = await axios.get(`${API_URL}/login`, {params: {
+        const response = await axios.get(`${API_URL}/api/auth/login`,  {params :{
             username,
             password
 

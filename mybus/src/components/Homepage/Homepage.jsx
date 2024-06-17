@@ -76,25 +76,35 @@ const handleNav=({idx})=>{
   navigate(navtext[idx]);
 }
 
-const images=[icon1,icon2,icon3,icon4];
-const buttons=["Bus Capacity Estimation" ,"Bus Demand Estimation","Button 3","Button 4" ];
-const navtext=['/bus-estimation','/login','/login','/login'];
+const images = [icon1, icon3, icon2, icon4];
+const buttons = ["Find your Bus", "Get your Stats", "Fleet Health Check", "Button 4"];
+const navtext = ['/bus-estimation', '/login', '/fleet', '/login'];
+const sentences = [
+  "Figure out the best bus for your route in no time !",
+  "Know how many buses you need.",
+  "Keep your buses running smoothly with a quick health check !",
+  "Explore additional features and options."
+];
+
 
 
 return (
   <>
-    <Slider {...settings} style ={{}}>
+    <Slider {...settings} style={{}}>
       {images.map((img, idx) => (
-        <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"} style={{background:'#000'}}>
-          <div className='bgslide'>
-          <img src={img} alt={img} />
-          <button onClick={() => handleNav({idx})} className='buttonx'>{buttons[idx]}</button>
-        </div>
+        <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"} style={{ background: '#000' }}>
+          <div className='bgslide' style={{ display: 'flex', alignItems: 'center', padding: '20px' }}>
+            <img src={img} alt={`icon-${idx}`} style={{ width: '300px', height: '300px', marginRight: '20px', marginLeft:'30px' }} />
+            <div style={{ color: '#fff' }}>
+              <p style={{ fontSize:'30px'}}>{sentences[idx]}</p>
+              <button onClick={() => handleNav({ idx })} className='buttonx' style={{ marginTop: '150px' }}>{buttons[idx]}</button>
+            </div>
+          </div>
         </div>
       ))}
     </Slider>
-  
-  
+ 
+
   <div className="containerss">
     <div className="left">
       <img src={maps} alt="icon1" style={{height:'400px',width:'650px',borderRadius:'20px',boxShadow:'inherit',margin:'20px',fontColor:'#fff'}}/>

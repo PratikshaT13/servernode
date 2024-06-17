@@ -3,8 +3,8 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import './LoadingAnimation.css';
-import loadingAnimation from '../assets/loading-animation2.json';
-import loadingAnimation1 from '../assets/loading-animation1.json';
+import loadingAnimation from '../assets/loading.json';
+
 
 const LoadingAnimation = () => {
     const defaultOptions = {

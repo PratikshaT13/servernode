@@ -9,6 +9,9 @@ import BusEstimationModule from './components/BusEstimationModule/BusEstimationM
 import SampleBusEstimationData from './components/BusEstimationModule/SampleBusEstimationData';
 import LoadingAnimation from './components/LoadingAnimation/LoadingAnimation';
 import Footer from './components/Footer/Footer';
+import FleetEstimationModule from './components/FleetHealth/FleetEstimationModule';
+import SampleFleetEstimationData from './components/FleetHealth/SampleFleetEstimationData';
+import StationStatus from './components/StationStatus/StationStatus';
 
 
 function App() {
@@ -48,6 +51,8 @@ function App() {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp  />} />
           <Route path="/bus-estimation" element={<SampleBusEstimationData />} />
+          <Route path="/fleet" element={<SampleFleetEstimationData/>} />
+          <Route path="/station" element={<StationStatus/>} />
         </Routes>
       )}
       
