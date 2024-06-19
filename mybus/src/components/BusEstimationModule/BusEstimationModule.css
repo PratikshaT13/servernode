@@ -1,18 +1,20 @@
-.bus-estimation-container {
+.bus-estimation-containerr {
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  border: 1px solid #ccc; /* Add border */
-  border-radius: 10px; /* Add border-radius */
-  padding: 20px; /* Add padding */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow */
+  /* border: 1px solid #ffffff00; /* Add border 
+  border-radius: 10px; Add border-radius */
+  /* padding: 20px; Add padding */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Add box-shadow */
   transition: transform 1s ease-in-out;
+  margin: 30px;
+  margin-left:30px;
 }
 
 button {
 padding: 10px 20px;
-background-color: #007bff;
+background-color: #23548c;
 color: white;
 border: none;
 border-radius: 5px;
@@ -21,7 +23,7 @@ align-items: center;
 }
 
 button:hover {
-background-color: #0056b3;
+background-color: #346090;
 }
 
 
@@ -33,21 +35,21 @@ background-color: #0056b3;
 }
 
 /* CSS for the card */
-.card {
+.cardd {
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 35px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #fffefefb;
   width: 100%; /* Set card width to 100% */
-  margin-top: 20px; /* Add margin between cards */
+  /* margin-top: 20px; Add margin between cards */
 
 }
 
 /* CSS for the container inside the card */
 .card-content {
   display: flex;
-  flex-direction: column; /* Change flex direction to column */
+  flex-direction: row; /* Change flex direction to column */
   align-items: center;
 }
 
@@ -80,42 +82,47 @@ background-color: #0056b3;
 .bus-gallery-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   overflow: hidden;
   position: relative;
+  flex-direction: row;
   
 }
 
 .bus-gallery {
   display: flex;
+  flex-direction: row;
   overflow: hidden;
   transition: transform 1s ease-in-out; /* Adjust the speed as needed */
 }
 
 .bus-gallery .bus-item {
-  min-width: 33.33%; /* Assuming 3 items are shown at a time */
+  max-width: 33.33%; /* Assuming 3 items are shown at a time */
   transition: transform 1s ease-in-out; /* Adjust the speed as needed */
+  background:#ffffff00;
 }
-.scroll-button {
-  position: sticky;
+.scrol-button {
+  position:absolute; 
   top: 50%;
-  transform: translateY(-50%);
+  transform:translateY(-50%);
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
   z-index: 1;
   width: 80px; 
   height: fit-content; 
-  margin-left: 50px;
+   margin-left: 50px;
   margin-right: 50px;
 }
 
-.left-find{
-  left: 10px; /* Adjust left position */
+.left-findd{
+  left: 10px; 
+  /* transform:translateY(-50%); */
 }
 
-.right-find {
-  right: 10px; /* Adjust right position */
+.right-findd {
+  right: 10px; 
+  /* transform:translateY(+50%); */
 }
 
 
@@ -149,3 +156,4 @@ background-color: #0056b3;
 .fade-out {
   animation: fadeOut 0.5s forwards;
 }
+

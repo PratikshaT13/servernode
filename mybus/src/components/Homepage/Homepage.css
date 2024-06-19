@@ -9,24 +9,36 @@
 
 .slide {
   transform: scale(0.6);
-  transition: transform 300ms;
   opacity: 0.5;
+  backdrop-filter: blur(10px);
+  background: rgba(136, 130, 135, 0.281);
+  border: 1px solid rgba(252, 252, 252, 0.603);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 20px;
 }
 
 .activeSlide {
   transform: scale(0.85);
-  opacity: 1.5;
+  opacity: 1;
 }
 
 .arrow {
-  background-color: #fff;
+  background-color: #1554b3c6;
+  color: #fefefe;
   position: absolute;
   cursor: pointer;
   z-index: 80;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for glass effect */
+  backdrop-filter: blur(10px); /* Blur effect for glass effect */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
-
+  
 .arrow svg {
   transition: color 300ms;
+  height: 30px;
+  width: 30px;
 }
 
 .arrow svg:hover {
@@ -34,18 +46,18 @@
 }
 
 .next {
-  right: 0%;
+  right: 20%;
   top: 50%;
 }
 
 .prev {
-  left: 0%;
+  left: 20%;
   top: 50%;
 }
 
 .buttonx {
-  background-color: #abb1f9; /* Pastel blue green */
-  color: #000000;
+  background-color: #23548c; /* Pastel blue green */
+  color: #ffffff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -56,26 +68,32 @@
 }
 
 .buttonx:hover {
-  background-color: #6358fd; /* Darker shade on hover */
+  background-color: #589ffd; /* Darker shade on hover */
   color: #000;
-} 
+}
 
 .containerss {
   display: flex;
-} 
+}
 
 body {
-  background: rgb(212, 217, 247); /* url('../assets/background1.png') no-repeat fixed center; */
-  background-size: 100% auto;
-} 
+  background: radial-gradient(circle at top, #16385e, #1f1e1e); /* Adjust colors as needed */
+  height: 100vh;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+}
 
 .bgslide {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: rgb(22, 38, 128);
-  box-shadow: 0 0 10px rgba(78, 48, 48, 0.2);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  backdrop-filter: blur(5px); /* Frosted glass effect */
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.1); /* Neumorphic shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
+  color: #fff; /* White text */
   height: 650px;
   border-radius: 20px;
   padding: 40px;
@@ -98,10 +116,10 @@ body {
 }
 
 .right {
-  background: rgba(146, 127, 222, 0.082);
-  border: 2px solid rgba(141, 124, 124, 0.2);
-  backdrop-filter: blur(80px);
-  box-shadow: 0 0 10px rgba(78, 48, 48, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: #000;
   border-radius: 20px;
   padding: 30px;
@@ -110,4 +128,9 @@ body {
   width: fit-content;
   margin-right: 30px;
   margin-top: 20px;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
 }

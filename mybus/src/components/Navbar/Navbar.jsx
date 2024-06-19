@@ -28,6 +28,12 @@ const Navbar = ({ isLoggedIn, username, handleSignOut }) => {
               <a href="/fleet" className="nav-link" onClick={() => navigate('/fleet')}>
                 Fleet Health Checkup
               </a>
+              <a href="/ticketgen" className="nav-link" onClick={() => navigate('/ticketgen')}>
+                Generate your ticket
+              </a>
+              <a href="/station" className="nav-link" onClick={() => navigate('/station')}>
+                Status of Ticket Counter
+              </a>
             </div>
           </li>
         </ul>
@@ -42,7 +48,7 @@ const Navbar = ({ isLoggedIn, username, handleSignOut }) => {
               </li>
               <li className="nav-item">
               
-              <div style={{fontSize: "14px", fontWeight: "bold", padding: "10px"}}>
+              <div style={{fontSize: "14px", fontWeight: "bold", padding: "10px", color: "#ffffff"}}>
                 {username}
               </div>
               </li>
@@ -60,7 +66,7 @@ const Navbar = ({ isLoggedIn, username, handleSignOut }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/signup" className="login-signup">
+                <Link to="/register" className="login-signup">
                   Sign Up
                 </Link>
               </li>

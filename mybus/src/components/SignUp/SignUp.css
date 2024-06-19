@@ -12,7 +12,12 @@
   }  */
 
   
-  
+.validation-error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
+    
   
 .wrapper{
     width: 420px;

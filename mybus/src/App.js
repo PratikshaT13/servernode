@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
+//import { HashLink as Link } from 'react-router-hash-link';
 import Homepage from './components/Homepage/Homepage';
 import Login from './components/LoginForm/Login';
 import SignUp from './components/SignUp/SignUp';
 import Navbar from './components/Navbar/Navbar';
-import BusEstimationModule from './components/BusEstimationModule/BusEstimationModule';
+//import BusEstimationModule from './components/BusEstimationModule/BusEstimationModule';
 import SampleBusEstimationData from './components/BusEstimationModule/SampleBusEstimationData';
 import LoadingAnimation from './components/LoadingAnimation/LoadingAnimation';
-import Footer from './components/Footer/Footer';
-import FleetEstimationModule from './components/FleetHealth/FleetEstimationModule';
+//import Footer from './components/Footer/Footer';
+//import FleetEstimationModule from './components/FleetHealth/FleetEstimationModule';
 import SampleFleetEstimationData from './components/FleetHealth/SampleFleetEstimationData';
 import StationStatus from './components/StationStatus/StationStatus';
+import TicketGeneration from './components/TicketGeneration/TicketGeneration';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 
 
 function App() {
@@ -41,6 +44,7 @@ function App() {
 
   return (
     <Router style={{ height: '100%' }}>
+    
       
       <Navbar isLoggedIn={isLoggedIn} username={username} handleSignOut={handleSignOut}/>
       {loading ? (
@@ -49,10 +53,11 @@ function App() {
         <Routes>
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/signup" element={<SignUp  />} />
+          <Route path="/register" element={<SignUp  />} />
           <Route path="/bus-estimation" element={<SampleBusEstimationData />} />
-          <Route path="/fleet" element={<SampleFleetEstimationData/>} />
+          <Route path="/fleet" element={<SampleFleetEstimationData isLoggedIn={isLoggedIn}/>}  />
           <Route path="/station" element={<StationStatus/>} />
+          <Route path="/ticketgen" element={<TicketGeneration/>} />
         </Routes>
       )}
       

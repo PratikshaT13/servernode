@@ -1,97 +1,3 @@
-// // src/components/LoginForm.js
-
-// import React, { useState } from 'react';
-// import { FaUser, FaLock } from 'react-icons/fa';
-// import authService from '../../services/LoginService';
-// import { useNavigate } from 'react-router-dom';
-// import './Login.css'; 
-
-
-// const LoginForm = () => {
-//     const [username, setUsername] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [error, setError] = useState(null);
-//     const navigate = useNavigate();
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         setError(null);
-
-//         try {
-//             const data = await authService.loginS(username, password);
-//             console.log('Login successful:', data);
-//             if (data) {  // Adjust this condition based on your API's response
-//                 navigate('/homepage');
-//             } else {
-//                 setError('Login failed. Please check your username and password.');
-//             }
-//         } catch (error) {
-//             setError('Login failed here. Please check your username and password.');
-//         }
-//     };
-
-//     const handleSignUpClick = () => {
-//         // Navigate to the SignUp page
-//         navigate('/signup');
-//     };
-
-    
-//     return (
-//         <div className="login-background">
-//             <div className='wrapper'>
-//                 <form onSubmit={handleSubmit}>
-//                     <h1>Login</h1>
-//                     <div className="input-box">
-//                         <input
-//                             type="text"
-//                             placeholder='Username'
-//                             value={username}
-//                             onChange={(e) => setUsername(e.target.value)}
-//                             required
-//                         />
-//                         <FaUser className="icon" />
-//                     </div>
-//                     <div className="input-box">
-//                         <input
-//                             type="password"
-//                             placeholder='Password'
-//                             value={password}
-//                             onChange={(e) => setPassword(e.target.value)}
-//                             required
-//                         />
-//                         <FaLock className="icon" />
-//                     </div>
-
-//                     {/* Remember me and Forgot password links */}
-//                     <div className="remember-forgot">
-//                         <label>
-//                             <input type="checkbox" />Remember me
-//                         </label>
-//                         <a href="/">Forgot password?</a>
-//                     </div>
-
-//                     {/* Error message */}
-//                     {error && <p className="error">{error}</p>}
-
-//                     {/* Login button */}
-//                     <button type="submit" >Login</button>
-
-//                     {/* Register link */}
-//                     <div className="register-link">
-//                         <p>Don't have an account?<span onClick={handleSignUpClick}>Register</span></p>
-//                     </div>
-//                 </form>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default LoginForm;
-
-
-
-
-
 import React, { useState } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
 import authService from '../../services/LoginService';
@@ -102,11 +8,33 @@ const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [validationErrors, setValidationErrors] = useState({});
   const navigate = useNavigate();
+
+  const validateForm = () => {
+    const errors = {};
+    if (!username) {
+      errors.username = 'Username is required';
+    }
+    if (!password) {
+      errors.password = 'Password is required';
+    } else if (password.length < 3) {
+      errors.password = 'Password must be at least 6 characters long';
+    }
+    return errors;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setValidationErrors({});
 
     try {
       const data = await authService.loginS(username, password);
@@ -118,12 +46,12 @@ const LoginForm = ({ onLogin }) => {
         setError('Login failed. Please check your username and password.');
       }
     } catch (error) {
-      setError('Login failed here. Please check your username and password.');
+      setError('Login failed. Please check your username and password.');
     }
   };
 
   const handleSignUpClick = () => {
-    navigate('/signup');
+    navigate('/register');
   };
 
   return (
@@ -140,6 +68,7 @@ const LoginForm = ({ onLogin }) => {
               required
             />
             <FaUser className="icon" />
+            {validationErrors.username && <p className="validation-error">{validationErrors.username}</p>}
           </div>
           <div className="input-box">
             <input
@@ -150,6 +79,7 @@ const LoginForm = ({ onLogin }) => {
               required
             />
             <FaLock className="icon" />
+            {validationErrors.password && <p className="validation-error">{validationErrors.password}</p>}
           </div>
 
           <div className="remember-forgot">
@@ -164,7 +94,7 @@ const LoginForm = ({ onLogin }) => {
           <button type="submit">Login</button>
 
           <div className="register-link">
-            <p>Don't have an account?<span onClick={handleSignUpClick}>Register</span></p>
+            <p>Don't have an account?<span onClick={handleSignUpClick}> Register</span></p>
           </div>
         </form>
       </div>
@@ -173,4 +103,3 @@ const LoginForm = ({ onLogin }) => {
 };
 
 export default LoginForm;
-

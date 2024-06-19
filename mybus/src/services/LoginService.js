@@ -18,12 +18,11 @@ const loginS = async (username, password) => {
 
 const signupS = async (username, password, email) => {
     try {
-        const response = await axios.get(`${API_URL}/signup` , 
+        const response = await axios.get(`${API_URL}/api/auth/register` , 
             {
             params: {
                 username,
-                password,
-                email
+                password
             },
         });
         return response.data;
@@ -34,11 +33,11 @@ const signupS = async (username, password, email) => {
 };
 
 
-const busListS = async (source, destination, passengers) => {
+const busListS = async (sourceCode, destinationCode, passengers) => {
 
     try {
-        const response = await axios.get(`${API_URL}/busData`, {params: {
-            source, destination, passengers
+        const response = await axios.get(`${API_URL}/buses`, {params: {
+            sourceCode, destinationCode
 
     }});
         return response.data;
@@ -48,8 +47,45 @@ const busListS = async (source, destination, passengers) => {
     }
 };
 
+const ticketG = async (sourceCode, destinationCode, passengers) => {
+
+    try {
+        const response = await axios.get(`${API_URL}/generateQRCode`, {params: {
+            sourceCode, destinationCode
+
+    }});
+        return response.data;
+    } catch (error) {
+        console.error('Login error:', error);
+        throw error;
+    }
+};
+
+const fleetS = async () => {
+
+    try {
+        const response = await axios.get(`${API_URL}/vehicles`);
+        return response.data;
+    } catch (error) {
+        console.error('Login error:', error);
+        throw error;
+    }
+};
+
+const fleetLin = async (licensePlate) => {
+
+    try {
+        const response = await axios.get(`${API_URL}/vbl`,{params: {
+            licensePlate}});
+        return response.data;
+    } catch (error) {
+        console.error('Login error:', error);
+        throw error;
+    }
+};
 
 
-const authService = {loginS, signupS, busListS};
+
+const authService = {loginS, signupS, busListS,ticketG,fleetS,fleetLin};
 
 export default  authService;

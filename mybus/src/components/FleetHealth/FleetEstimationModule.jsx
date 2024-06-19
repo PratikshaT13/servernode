@@ -8,68 +8,13 @@ import animationData from '../assets/engine.json';
 
 
 
-// const FleetEstimationModule = ({ source, destination, fuelLevel, licensePlate, status }) => {
-//   const [busData, setBusData] = useState({
-//     fuelLevel,
-//     licensePlate,
-//     status
-//   });
-//   const [animationClass, setAnimationClass] = useState('fade-in');
 
-//   const defaultOptions = {
-//     loop: true,
-//     autoplay: true,
-//     animationData: animationData,
-//     rendererSettings: {
-//       preserveAspectRatio: 'xMidYMid slice'
-//     }
-//   };
-
-//   useEffect(() => {
-//     // Trigger fade-out animation
-//     setAnimationClass('fade-out');
-
-//     // Set a timeout to update the data and trigger fade-in animation
-//     const timeoutId = setTimeout(() => {
-//       setBusData({ fuelLevel, licensePlate, status });
-//       setAnimationClass('fade-in');
-//     }, 500); // This should match the duration of your fade-out animation
-
-//     // Cleanup timeout on component unmount
-//     return () => clearTimeout(timeoutId);
-//   }, [fuelLevel, licensePlate, status]);
-
-//   return (
-//     <div className={`bus-estimation-container ${animationClass}`}>
-//       <div className="bus-details">
-//         <div className="card">
-//           <div className="fuelLevel">
-//             <h4>Bus Fuel : {busData.fuelLevel}</h4>
-//           </div>
-//           <div className="ani1">
-//             <Lottie options={defaultOptions} height={150} width={150} isClickToPauseDisabled={true} />
-//           </div>
-//           <div className="bus-number">
-//             <h4>Licence Plate No : {busData.licensePlate}</h4>
-//           </div>
-//           <div className="bus-number">
-//             <h4>Engine status: {busData.status}</h4>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-
-// export default FleetEstimationModule;
-
-
-const FleetEstimationModule = ({ fuelLevel, licensePlate, status }) => {
+const FleetEstimationModule = ({ fuelLevel, licensePlate, status,lastMaintenanceDate }) => {
   const [busData, setBusData] = useState({
     fuelLevel,
     licensePlate,
-    status
+    status,
+    lastMaintenanceDate
   });
   const [animationClass, setAnimationClass] = useState('fade-in');
 
@@ -88,18 +33,18 @@ const FleetEstimationModule = ({ fuelLevel, licensePlate, status }) => {
 
     // Set a timeout to update the data and trigger fade-in animation
     const timeoutId = setTimeout(() => {
-      setBusData({ fuelLevel, licensePlate, status });
+      setBusData({ fuelLevel, licensePlate, status,lastMaintenanceDate});
       setAnimationClass('fade-in');
     }, 500); // This should match the duration of your fade-out animation
 
     // Cleanup timeout on component unmount
     return () => clearTimeout(timeoutId);
-  }, [fuelLevel, licensePlate, status]);
+  }, [fuelLevel, licensePlate, status,lastMaintenanceDate]);
 
   return (
-    <div className={`bus-estimation-container ${animationClass}`}>
+    <div className={`bus-estimation-containerr ${animationClass}`}>
       <div className="bus-details">
-        <div className="card" style={{display :"flex", margin:"0px"}}>
+        <div className="cardd" style={{display :"flex", margin:"0px"}}>
           
           
             <Lottie options={defaultOptions} height={100} width={100} isClickToPauseDisabled={true} />
@@ -112,6 +57,8 @@ const FleetEstimationModule = ({ fuelLevel, licensePlate, status }) => {
           
           
             <h4 style={{textAlign: "center", margin:"20px"}}>     Engine Status<br></br>{busData.status}</h4>
+
+            <h4 style={{textAlign: "center", margin:"20px"}}>     Last Maintance<br></br>{busData.lastMaintenanceDate}</h4>
           
         </div>
       </div>

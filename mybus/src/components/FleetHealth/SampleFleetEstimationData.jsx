@@ -1,154 +1,157 @@
-// import BusGallery from './BusEstimationGalary'; 
 
 // import React, { useState } from 'react';
-// import './BusEstimationModule.css';
+// import './FleetEstimationModule.css';
+// import FleetGallery from './FleetEstimationGalary';
 // import { FaMapMarkerAlt } from 'react-icons/fa';
 // import authService from '../../services/LoginService';
 
-
-
-
-// const SampleBusEstimationData = () => {
-//   const [source, setSource] = useState('BVB Stop');
-//   const [destination, setDestination] = useState('New bus stand');
-//   const [passengers, setPassengers] = useState('');
+// const SampleFleetEstimationData = () => {
 //   const [error, setError] = useState(null);
-//   const [showEstimation, setShowEstimation] = useState(false); // State to toggle showing bus estimation cards
-//   const [busDataList, setBusDataList] = useState([]);
+//   const [showEstimation, setShowEstimation] = useState(false);
+//   const [fleetS, setFleetS] = useState([]);
 
 //   const handleFindBus = async (e) => {
 //     e.preventDefault();
 //     setError(null);
 
 //     try {
-//         console.log('Finding buses from', source, 'to', destination, 'with', passengers, 'passengers');
-//         const data = await authService.busListS(source, destination, passengers)
-//         console.log('Login successful:', data);
-//         if (true) {  // Adjust this condition based on your API's response
-//           setBusDataList(data)
-//           setShowEstimation(true);
-//         } else {
-//             setError('Login failed. Please check your username and password.');
-//         }
+//       const data = await authService.fleetS();
+//       if (data) {
+//         setFleetS(data);
+//         setShowEstimation(true);
+//       } else {
+//         setError('Failed to fetch fleet health data.');
+//       }
 //     } catch (error) {
-//         setError('Login failed here. Please check your username and password.');
+//       setError('Failed to fetch fleet health data. Please try again.');
 //     }
-    
-// };
+//   };
 
 //   return (
-//     <div className="bus-estimation-container ">
-//      <div className="source-destination" style={{textAlign:'center'}}>
-//       <div style={{ display: 'inline-block',fontWeight:'500' }}>Source:</div>
-//         <FaMapMarkerAlt className="icon" />
-//         <select
-//           value={source}
-//           onChange={(e) => setSource(e.target.value)}
-//           style={{
-//             marginLeft: '5px',
-//             marginRight: '5px',
-//             padding: '5px',
-//             borderRadius: '5px',
-//             border: '1px solid #ccc',
-//           }}
-//         >
-//           <option value="BVB Stop">BVB Stop</option>
-//           {/* Add other source options here */}
-//         </select>
+//     <div className="bus-estimation-containerr">
+//       <div className="source-destination" style={{ textAlign: 'center', fontSize: '26px', fontWeight: '500' }}>
+//         <button onClick={handleFindBus} style={{ display: 'inline-block', marginLeft: '10px', marginTop: '10px', fontWeight: '500', background: '#23548c' }}>
+//           Get Fleet Health
+//         </button>
 //       </div>
-//       <div>
-//         <div style={{ display: 'inline-block', marginLeft: '62px',fontWeight:'500',marginTop:'15px' }}>Destination:</div>
-//         <FaMapMarkerAlt className="icon" />
-//         <select
-//           value={destination}
-//           onChange={(e) => setDestination(e.target.value)}
-//           style={{
-//             marginLeft: '10px',
-//             marginRight: '5px',
-//             padding: '5px',
-//             borderRadius: '5px',
-//             border: '1px solid #ccc',
-//           }}
-//         >
-//           <option value="New bus stand">New bus stand</option>
-//           {/* Add other destination options here */}
-//         </select>
-//       </div>
-//       <div className="passengers-input" style={{ display: 'inline-block', marginLeft:'1px',marginTop:'5px'}}>
-//         <input
-//           type="number"
-//           placeholder="Number of passengers"
-//           value={passengers}
-//           onChange={(e) => setPassengers(e.target.value)}
-//           style={{
-//             justifyContent:'center',
-//             marginTop:'10px',
-//             marginLeft: '100px',
-//             marginRight: '0px',
-//             padding: '5px',
-//             borderRadius: '5px',
-//             border: '1px solid #ccc',
-//           }}
-//         />
-//       </div>
-//       <button onClick={handleFindBus} style={{ display: 'inline-block', marginLeft: '100px',marginTop:'10px',fontWeight:'500' }}>Find Bus</button>
-//       {showEstimation &&  <BusGallery busDataList={busDataList} /> } {/* Render the bus estimation cards if showEstimation is true */}
+
+//       {showEstimation && <FleetGallery busDataList={fleetS} />} {/* Render the fleet estimation cards if showEstimation is true */}
 //     </div>
 //   );
 // };
 
-// export default SampleBusEstimationData;
+// export default SampleFleetEstimationData;
 
 
-
-import FleetGallery from './FleetEstimationGalary'; 
-
-import React, { useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import './FleetEstimationModule.css';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import FleetGallery from './FleetEstimationGalary';
 import authService from '../../services/LoginService';
 
-
-
-
-const SampleFleetEstimationData = () => {
+const SampleFleetEstimationData = (isLoggedIn) => {
   const [error, setError] = useState(null);
-  const [showEstimation, setShowEstimation] = useState(false); // State to toggle showing bus estimation cards
-  
-  const busDataList = [
-    { fuelLevel: '12.5L', licensePlate: 'KA25MN7865', status: 'Good' },
-    { fuelLevel: '56.2L', licensePlate: 'KA25PN9065', status: 'Moderate' },
-    { fuelLevel: '10.2L', licensePlate: 'KA25FR7985', status: 'Good' },
-    { fuelLevel: '68.4L', licensePlate: 'KA25LO6765', status: 'Bad' },
-    { fuelLevel: '68.4L', licensePlate: 'KA25UO5565', status: 'Bad' },
-  
+  const [showEstimation, setShowEstimation] = useState(false);
+  const [fleetS, setFleetS] = useState([]);
+  const [licensePlateFilter, setLicensePlateFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
+  const [filteredFleetS, setFilteredFleetS] = useState([]);
+
+  // Dropdown options for status filter
+  const statusOptions = [
+    { value: '', label: 'All' },
+    { value: 'running', label: 'Running' },
+    { value: 'out of order', label: 'Out of Order' },
+    { value: 'under maintenance', label: 'Under Maintenance' },
   ];
 
-  const handleFindBus = async (e) => {
-    e.preventDefault();
+  const handleFindBus = async () => {
     setError(null);
-
     try {
-        setShowEstimation(true);
+      const data = await authService.fleetS();
+      if (data) {
+        setFleetS(data);
+        setShowEstimation(true); // Show fleet estimation after successful fetch
+      } else {
+        setError('No fleet health data available.');
+      }
     } catch (error) {
-        setError('Login failed here. Please check your username and password.');
+      setError('Failed to fetch fleet health data. Please try again.');
     }
-    
-};
+  };
 
-  return (
-    <div className="bus-estimation-container ">
-     <div className="source-destination" style={{textAlign:'center', fontSize:'26px', fontWeight:'500' }}>
-      
-      <button onClick={handleFindBus} style={{ display: 'inline-block', marginLeft: '10px',marginTop:'10px',fontWeight:'500' }}>Get Fleet Health</button>
-      </div>
-      <div>
-        
+  useEffect(() => {
+    // Filter fleetS based on licensePlateFilter and statusFilter
+    const filteredData = fleetS.filter((item) => {
+      const licensePlate = item.licensePlate || '';
+      const status = item.status || ''; // Handle null or undefined case
+      console.log("fff:",fleetS)
+      const matchesLicensePlate = new RegExp(licensePlateFilter.toString(), 'i').test(licensePlate.toString());
+      console.log("Entered:",licensePlateFilter);
+      console.log("ori:",item);
+      const matchesStatus = status.toLowerCase().includes(statusFilter.toLowerCase());
+      console.log("MAtch:",matchesLicensePlate);
+      return matchesLicensePlate && matchesStatus;
+    });
+
+    setFilteredFleetS(filteredData);
+  }, [fleetS, licensePlateFilter, statusFilter]);
+
+  return (isLoggedIn ? (<>
+       
+  
+    <div className="bus-estimation-containerr">
+      <div className="source-destination" style={{ textAlign: 'center', fontSize: '26px', fontWeight: '500' }}>
+        <button onClick={handleFindBus} style={{ display: 'inline-block', marginLeft: '10px', marginTop: '10px', fontWeight: '500', background: '#23548c' }}>
+          Get Fleet Health
+        </button>
       </div>
 
-      {showEstimation &&  <FleetGallery busDataList={busDataList} /> } {/* Render the bus estimation cards if showEstimation is true */}
+      {showEstimation && (
+        <>
+          <div className="source-destination" style={{ textAlign: 'center', fontSize: '20px', fontWeight: '500', marginTop: '20px' }}>
+            <div style={{ display: 'inline-block', fontWeight: '500' }}>Enter License Plate:</div>
+            <input
+              
+              placeholder="License Plate"
+              value={licensePlateFilter}
+              onChange={(e) => setLicensePlateFilter(e.target.value)}
+              style={{
+                marginLeft: '5px',
+                marginRight: '5px',
+                padding: '5px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+              }}
+            />
+            <div style={{ display: 'inline-block', marginLeft: '20px', fontWeight: '500' }}>Filter by Status:</div>
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              style={{
+                marginLeft: '5px',
+                padding: '5px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+              }}
+            >
+              {statusOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <FleetGallery busDataList={filteredFleetS} />
+        </>
+      )}
+
+      {error && <div className="error">{error}</div>}
     </div>
-  );
+  </>):(<p>Sign In</p>));
 };
 
 export default SampleFleetEstimationData;
+
+
+

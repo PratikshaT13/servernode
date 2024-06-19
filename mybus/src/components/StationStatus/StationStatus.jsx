@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './BusStationStatus.css';
 import animationData from '../assets/ticket.json';
 import Lottie from 'react-lottie';
+import passanger from '../assets/passanger.json'
 
 const StationStatus = () => {
     const [station, setStation] = useState('');
@@ -30,6 +31,15 @@ const StationStatus = () => {
         }
       };
 
+      const defaultOptions2 = {
+        loop: true,
+        autoplay: true,
+        animationData: passanger,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      };
+
     return (
         <div className="container">
             <div className="content">
@@ -49,7 +59,7 @@ const StationStatus = () => {
                         
 
                         <div className="ani1" style={{display:"block", margin:"100px"}}>
-                          <Lottie options={defaultOptions} height={150} width={200} isClickToPauseDisabled={true} />
+                          <Lottie options={defaultOptions2} height={150} width={200} isClickToPauseDisabled={true} />
                           <br></br><h4 style={{color:"white"}}>Passenger Count<br></br>{passengerCount}</h4>
                         </div>
                         

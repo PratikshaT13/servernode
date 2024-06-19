@@ -61,13 +61,14 @@ const FleetGallery = ({ busDataList }) => {
   };
 
   return (
-    <div className="bus-gallery-container">
-      <div className="bus-gallery" ref={galleryRef}>
-        {busDataList.slice(startIndex, busDataList.length - 1).map((busData, index) => (
+    <div className="bus-galleryy-container">
+      <div className="bus-galleryy" ref={galleryRef}>
+        {busDataList.slice(startIndex, busDataList.length ).map((busData, index) => (
           <div className="bus-item" key={index}>
             <FleetEstimationModule
               fuelLevel={busData.fuelLevel}
               licensePlate={busData.licensePlate}
+              lastMaintenanceDate={busData.lastMaintenanceDate}
               status={busData.status}
             />
           </div>
