@@ -47,8 +47,10 @@ import React,{ useState, useEffect } from 'react';
 import './FleetEstimationModule.css';
 import FleetGallery from './FleetEstimationGalary';
 import authService from '../../services/LoginService';
+import { Link, useNavigate } from 'react-router-dom';
 
-const SampleFleetEstimationData = (isLoggedIn) => {
+
+const SampleFleetEstimationData = ({isLoggedIn}) => {
   const [error, setError] = useState(null);
   const [showEstimation, setShowEstimation] = useState(false);
   const [fleetS, setFleetS] = useState([]);
@@ -63,6 +65,8 @@ const SampleFleetEstimationData = (isLoggedIn) => {
     { value: 'out of order', label: 'Out of Order' },
     { value: 'under maintenance', label: 'Under Maintenance' },
   ];
+  const navigate = useNavigate();
+
 
   const handleFindBus = async () => {
     setError(null);
@@ -148,7 +152,31 @@ const SampleFleetEstimationData = (isLoggedIn) => {
 
       {error && <div className="error">{error}</div>}
     </div>
-  </>):(<p>Sign In</p>));
+  </>):(
+     <a
+     href="/login"
+     className="nav-link"
+     onClick={(e) => {
+       e.preventDefault();
+       navigate('/login');
+     }}
+     style={{
+       backgroundColor: '#23548c',
+       color: 'white',
+       padding: '10px 20px',
+       marginTop:'10%',
+       marginLeft:'44%',
+       border: 'none',
+       borderRadius: '5px',
+       textDecoration: 'none',
+       display: 'inline-block',
+       textAlign: 'center',
+       justifyContent:'center'
+     }}
+   >
+     Login first
+   </a>
+  ));
 };
 
 export default SampleFleetEstimationData;
