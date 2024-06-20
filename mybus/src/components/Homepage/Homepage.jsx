@@ -52,12 +52,11 @@ const handleNav=({idx})=>{
   navigate(navtext[idx]);
 }
 
-const images = [icon1, icon3, icon2, icon4];
-const buttons = ["Find your Bus", "Know the status of the counter", "Fleet Health Check", "Generate Ticket"];
-const navtext = ['/bus-estimation', '/login', '/fleet', '/login'];
+const images = [icon1, icon2, icon4];
+const buttons = ["Find your Bus", "Fleet Health Check", "Generate Ticket"];
+const navtext = ['/bus-estimation', '/fleet', '/ticketgen'];
 const sentences = [
   "Figure out the best bus for your route in no time !",
-  "Get real-time updates on counter status and bus availability.",
   "Keep your buses running smoothly with a quick health check !",
   "Easily generate your travel ticket."
 ];

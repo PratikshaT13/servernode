@@ -54,7 +54,7 @@ const TicketGeneration = () => {
   return (
     <div className="bus-estimation-container">
       <div className="source-destination" style={{ textAlign: 'center', fontSize: '26px', fontWeight: '500' }}>
-        <div style={{ display: 'inline-block', fontWeight: '500' }}>Source: </div>
+        <div style={{ display: 'inline-block', fontWeight: '500',color:'#ffffff'}}>Source: </div>
         <FaMapMarkerAlt className="icon" />
         <select
           value={source}
@@ -74,7 +74,7 @@ const TicketGeneration = () => {
           ))}
         </select>
 
-        <div style={{ display: 'inline-block', marginLeft: '62px', fontWeight: '500', marginTop: '15px' }}>Destination: </div>
+        <div style={{ display: 'inline-block', marginLeft: '62px', fontWeight: '500', marginTop: '15px',color:'#ffffff' }}>Destination: </div>
         <FaMapMarkerAlt className="icon" />
         <select
           value={destination}
@@ -94,7 +94,7 @@ const TicketGeneration = () => {
           ))}
         </select>
 
-        <button onClick={handleFindBus} style={{ display: 'inline-block', marginLeft: '100px', marginTop: '10px', fontWeight: '500' }}>Generate Ticket</button>
+        <button onClick={handleFindBus} style={{ display: 'inline-block', marginLeft: '100px', marginTop: '10px', fontWeight: '500',color:'#ffffff',background:'#23548c'}}>Generate Ticket</button>
       </div>
 
       {error && <div className="error">{error}</div>}
@@ -106,7 +106,6 @@ const TicketGeneration = () => {
           <p><strong>Destination:</strong> {busStations[ticketData.destinationCode]}</p>
           <p><strong>Generation Time:</strong> {ticketData.generationTime}</p>
           <p><strong>Price:</strong> {ticketData.price}</p>
-          <p><strong>Unique Key:</strong> {ticketData.uniqueKey}</p>
           <div className="qr-code">
             <QRCode value={ticketData.uniqueKey} />
           </div>

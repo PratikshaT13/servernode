@@ -31,9 +31,6 @@ const Navbar = ({ isLoggedIn, username, handleSignOut }) => {
               <a href="/ticketgen" className="nav-link" onClick={() => navigate('/ticketgen')}>
                 Generate your ticket
               </a>
-              <a href="/station" className="nav-link" onClick={() => navigate('/station')}>
-                Status of Ticket Counter
-              </a>
             </div>
           </li>
         </ul>
