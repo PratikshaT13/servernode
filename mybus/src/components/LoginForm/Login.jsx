@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
 import authService from '../../services/LoginService';
 import { useNavigate } from 'react-router-dom';
+import maps from '../assets/map.png';
 import './Login.css';
 
 const LoginForm = ({ onLogin }) => {
@@ -39,7 +40,7 @@ const LoginForm = ({ onLogin }) => {
     try {
       const data = await authService.loginS(username, password);
       console.log('Login successful:', data);
-      if (data) {  // Adjust this condition based on your API's response
+      if (data.success) {  // Adjust this condition based on your API's response
         onLogin(username);  // Set login state to true and pass the username
         navigate('/homepage');
       } else {
@@ -54,7 +55,8 @@ const LoginForm = ({ onLogin }) => {
     navigate('/register');
   };
 
-  return (
+  return (<div style={{display:'flex'}}>
+    
     <div className="login-background">
       <div className='wrapper'>
         <form onSubmit={handleSubmit}>
@@ -98,6 +100,11 @@ const LoginForm = ({ onLogin }) => {
           </div>
         </form>
       </div>
+    </div>
+    <div className="left">
+       {/* <MapComponent /> */}
+      <img src={maps} alt="icon1" style={{height:'425px',width:'780px',borderRadius:'10px',boxShadow:'inherit',margin:'20px',fontColor:'#fff'}}/>
+    </div>
     </div>
   );
 };

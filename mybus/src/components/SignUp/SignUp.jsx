@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css'; 
 import { FaUser, FaLock } from "react-icons/fa";
-import { IoMail } from "react-icons/io5";
+import { IoMail, IoCall } from "react-icons/io5";
 import authService from '../../services/LoginService';
+import maps from '../assets/map.png';
 
 const SignUp = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [mno, setMno] = useState('');
     const [error, setError] = useState('');
     const [validationErrors, setValidationErrors] = useState({});
     const navigate = useNavigate();
@@ -45,7 +47,7 @@ const SignUp = () => {
         setValidationErrors({});
 
         try {
-            const data = await authService.signupS(username, password);
+            const data = await authService.signupS(username, password, mno, email);
             console.log('Sign up successful:', data);
             if (data) {  // Adjust this condition based on your API's response
                 navigate('/login');
@@ -99,6 +101,17 @@ const SignUp = () => {
                         <IoMail className='icon'/>
                         {validationErrors.email && <p className="validation-error">{validationErrors.email}</p>}
                     </div>
+                    <div className="input-box">
+                        <input
+                            type="text"
+                            placeholder='Mobile-No'
+                            value={mno}
+                            onChange={(e) => setMno(e.target.value)}
+                            required
+                        />
+                        <IoCall className='icon'/>
+                       
+                    </div>
 
                     {error && <p className="error">{error}</p>}
 
@@ -109,6 +122,10 @@ const SignUp = () => {
                     </div>
                 </form>
             </div>
+      <div className="left">
+          {/* <MapComponent /> */}
+         <img src={maps} alt="icon1" style={{height:'500px',width:'740px',borderRadius:'10px',boxShadow:'inherit',marginLeft:'20px',marginTop:'20px',fontColor:'#fff'}}/>
+      </div>
         </div>
     );
 };

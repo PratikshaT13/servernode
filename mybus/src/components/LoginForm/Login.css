@@ -10,6 +10,14 @@
   }
    */
 
+.left{
+    justify-content: right;
+    /* border: 1px solid rgba(141, 124, 124, 0.2);  */
+    backdrop-filter: blur(10px);
+    /* box-shadow: 0 0 5px rgba(235, 228, 228, 0.2);  */
+}
+
+  
 .validation-error {
     color: red;
     font-size: 0.8em;
@@ -19,7 +27,7 @@
 
 .wrapper{
     width: 420px;
-    background:rgba(249, 135, 135, 0.36);
+    background:rgba(125, 184, 235, 0.38);
     border: 2px solid rgba(141, 124, 124, 0.2);
     backdrop-filter: blur(30px);
     box-shadow: 0 0 10px rgba(235, 228, 228, 0.2);

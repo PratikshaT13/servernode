@@ -16,13 +16,15 @@ const loginS = async (username, password) => {
     }
 };
 
-const signupS = async (username, password, email) => {
+const signupS = async (username, password, phone_no, email) => {
     try {
         const response = await axios.get(`${API_URL}/api/auth/register` , 
             {
             params: {
                 username,
-                password
+                password,
+                phone_no,
+                email
             },
         });
         return response.data;
