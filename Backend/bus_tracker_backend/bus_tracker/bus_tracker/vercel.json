@@ -3,7 +3,11 @@
   "builds": [
     {
       "src": "pom.xml",
-      "use": "@vercel/java"
+      "use": "@vercel/java",
+      "config": {
+        "buildCommand": "mvn clean package",
+        "startCommand": "java -jar target/bus_tracker-0.0.1-SNAPSHOT.jar"
+      }
     }
   ],
   "routes": [
@@ -11,8 +15,5 @@
       "src": "/.*",
       "dest": "/"
     }
-  ],
-  "env": {
-    "JAVA_HOME": "/usr/local/openjdk-21"
-  }
+  ]
 }
