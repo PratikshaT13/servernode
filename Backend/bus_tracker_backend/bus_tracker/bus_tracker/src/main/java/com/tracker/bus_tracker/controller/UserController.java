@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000*")
+@CrossOrigin(origins = "https://the-blue-transit.vercel.app")
 @RestController
 @AllArgsConstructor
 public class UserController {
