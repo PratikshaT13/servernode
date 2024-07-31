@@ -27,6 +27,10 @@ const users = [
   { username: 'user2', password: 'pass2', phone_no: '0987654321', email: 'user2@example.com' }
 ];
 
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
+
 app.get('/buses', (req, res) => {
   res.json(busDataList);
 });
